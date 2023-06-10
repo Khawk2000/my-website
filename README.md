@@ -1,2 +1,2 @@
-# my-website
-Practice building a website
+# My Practice Website   
+Practice building a website using React
