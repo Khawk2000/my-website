@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  background-color: #d9e853;
 }
 
 body {
@@ -57,8 +58,8 @@ body {
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: #fafafa;
+  border: 1px solid black;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -80,11 +81,28 @@ body {
 .status {
   margin-bottom: 10px;
 }
-.game {
+
+.content {
   display: flex;
   flex-direction: column;
+  margin-left: 500px;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  column-gap: 80px;
+  padding-bottom: 60px;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.reset {
+  float: right;
+  margin-top: 45px;
+  height: 60px;
+  width: 60px;
+  background-color: crimson;
 }

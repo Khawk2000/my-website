@@ -55,12 +55,18 @@ export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
-  const currentSquares = history[currentMove]
+  const currentSquares = history[currentMove];
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove+1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
+  }
+
+  function handleReset() {
+    const resetHistory = [...history.slice(0,0), Array(9).fill(null)];
+    setHistory(resetHistory);
+    setCurrentMove(0);
   }
 
   function jumpTo(nextMove) {
@@ -83,14 +89,20 @@ export default function Game() {
   });
 
   return(
-    <div className="game">
+    <div className="content">
       <h1>Simple TicTacToe</h1>
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
+      <div className="game">
+        <div className="game-board">
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+          
+        </div>
+        <button className='reset' onClick={handleReset}>Reset</button>
+        </div>
       <div className="game-info">
         <ol>{moves}</ol>
       </div>
+        
+      
     </div>
   );
 }
